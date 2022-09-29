@@ -1,9 +1,5 @@
-import React from 'react';
-import './app.css';
-import Habit from './components/habit';
+import React from "react";
 
-function App() {
-  return <Habit/>;
-}
+function App() {}
 
 export default App;
