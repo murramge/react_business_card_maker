@@ -1,7 +1,12 @@
-@value makerGreen from '../../common/colors.css';
+@value makerGreen,makerWhite,makerLightGray,makerPink from '../../common/colors.css';
 
 .container {
+  width: 30em;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: makerWhite;
 }
 .button {
   width: 80%;
@@ -9,5 +14,9 @@
   border-radius: 25px;
   border-color: makerGreen;
   padding: 10px;
+  cursor: pointer;
   margin-bottom: 15px;
+}
+.button:hover {
+  background-color: makerLightPink;
 }

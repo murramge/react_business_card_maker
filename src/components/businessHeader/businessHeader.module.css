@@ -13,3 +13,13 @@
   margin-top: 0.4rem;
   color: white;
 }
+.logout {
+  font-size: small;
+  border-radius: 25px;
+  border-color: transparent;
+  padding: 0.8em;
+  position: absolute;
+  right: 3em;
+  top: 1em;
+  cursor: pointer;
+}

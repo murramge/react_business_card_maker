@@ -1,11 +1,12 @@
 import React from "react";
 import Login from "./components/Login/login";
+import styles from "./app.module.css";
 
-function App() {
+function App({ authservice }) {
   return (
-    <>
-      <Login />
-    </>
+    <div className={styles.app}>
+      <Login authservice={authservice} />
+    </div>
   );
 }
 
