@@ -1,0 +1,13 @@
+@value makerGreen from '../../common/colors.css';
+
+.container {
+  text-align: center;
+}
+.button {
+  width: 80%;
+  font-size: medium;
+  border-radius: 25px;
+  border-color: makerGreen;
+  padding: 10px;
+  margin-bottom: 15px;
+}

@@ -1,12 +1,10 @@
 import React from "react";
-import BusinessFooter from "./components/businessFooter/businessFooter";
-import BusinessHeader from "./components/businessHeader/businessHeader";
+import Login from "./components/Login/login";
 
 function App() {
   return (
     <>
-      <BusinessHeader />
-      <BusinessFooter />
+      <Login />
     </>
   );
 }
