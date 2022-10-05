@@ -10,7 +10,10 @@ function App({ authservice }) {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Login authservice={authservice} />}></Route>
-          <Route path="/main" element={<BusinessCardMain />}></Route>
+          <Route
+            path="/main"
+            element={<BusinessCardMain authservice={authservice} />}
+          ></Route>
         </Routes>
       </BrowserRouter>
     </div>
