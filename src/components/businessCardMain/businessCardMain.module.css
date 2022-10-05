@@ -1,0 +1,14 @@
+@value makerGreen,makerWhite,makerLightGray,makerPink from '../../common/colors.css';
+
+.container {
+  width: 70em;
+  height: auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: makerWhite;
+}
+.maincontainer {
+  height: 75vh;
+}

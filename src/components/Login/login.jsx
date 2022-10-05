@@ -1,16 +1,20 @@
 import React from "react";
-import BusinessFooter from "../businessFooter/businessFooter";
-import BusinessHeader from "../businessHeader/businessHeader";
+import BusinessCardFooter from "../businessCardFooter/businessCardFooter";
+import BusinessCardHeader from "../businessCardHeader/businessCardHeader";
 import styles from "./login.module.css";
+import { useNavigate } from "react-router-dom";
 
 function Login({ authservice }) {
+  const navigate = useNavigate();
   const onLogin = (event) => {
-    authservice.login(event.currentTarget.textContent).then(console.log);
+    authservice.login(event.currentTarget.textContent).then((obj) => {
+      obj.operationType && navigate(`/main`);
+    });
   };
   return (
     <>
       <section className={styles.container}>
-        <BusinessHeader />
+        <BusinessCardHeader />
         <div>
           <h1>Login</h1>
         </div>
@@ -24,7 +28,7 @@ function Login({ authservice }) {
             Github
           </button>
         </div>
-        <BusinessFooter />
+        <BusinessCardFooter />
       </section>
     </>
   );

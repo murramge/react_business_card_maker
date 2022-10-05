@@ -12,6 +12,7 @@
 .text {
   margin-top: 0.4rem;
   color: white;
+  font-size: x-large;
 }
 .logout {
   font-size: small;

@@ -1,6 +1,6 @@
 import React from "react";
-import styles from "./businessHeader.module.css";
-function BusinessHeader({ onLogout }) {
+import styles from "./businessCardHeader.module.css";
+function BusinessCardHeader({ onLogout }) {
   return (
     <>
       <nav className={styles.bg}>
@@ -19,4 +19,4 @@ function BusinessHeader({ onLogout }) {
   );
 }
 
-export default BusinessHeader;
+export default BusinessCardHeader;

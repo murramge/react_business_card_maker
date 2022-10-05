@@ -1,6 +1,6 @@
 import React from "react";
-import styles from "./businessFooter.module.css";
-function BusinessFooter(props) {
+import styles from "./businessCardFooter.module.css";
+function BusinessCardFooter(props) {
   return (
     <>
       <nav className={styles.bg}>
@@ -12,4 +12,4 @@ function BusinessFooter(props) {
   );
 }
 
-export default BusinessFooter;
+export default BusinessCardFooter;

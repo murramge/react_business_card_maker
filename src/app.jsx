@@ -1,11 +1,18 @@
 import React from "react";
 import Login from "./components/Login/login";
 import styles from "./app.module.css";
+import BusinessCardMain from "./components/businessCardMain/businessCardMain";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App({ authservice }) {
   return (
     <div className={styles.app}>
-      <Login authservice={authservice} />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Login authservice={authservice} />}></Route>
+          <Route path="/main" element={<BusinessCardMain />}></Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
