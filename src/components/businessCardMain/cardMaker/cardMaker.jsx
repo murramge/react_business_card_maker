@@ -5,7 +5,7 @@ function CardMaker({ cards }) {
   return (
     <div className={styles.maker}>
       <h1 className={styles.header}>CardMaker</h1>
-      <ul>
+      <ul className={styles.cards}>
         {cards.map((card) => (
           <CardEditForm card={card}></CardEditForm>
         ))}
