@@ -2,4 +2,9 @@
 
 .header {
   color: makerGreen;
+  text-align: center;
+}
+.maker {
+  flex-basis: 50%;
+  background-color: blanchedalmond;
 }

@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./cardMaker.module.css";
 function CardMaker(props) {
   return (
-    <div>
+    <div className={styles.maker}>
       <h1 className={styles.header}>CardMaker</h1>
     </div>
   );
