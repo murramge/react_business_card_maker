@@ -11,4 +11,6 @@
 }
 .maincontainer {
   height: 75vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }

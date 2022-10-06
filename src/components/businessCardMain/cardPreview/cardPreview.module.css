@@ -1,0 +1,5 @@
+@value makerGreen,makerWhite,makerLightGray,makerPink from '../../../common/colors.css';
+
+.header {
+  color: makerGreen;
+}
