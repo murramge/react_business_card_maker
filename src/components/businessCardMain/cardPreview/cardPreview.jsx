@@ -8,7 +8,9 @@ function CardPreview({ cards }) {
       <h1 className={styles.header}>CardPreview</h1>
       <ul className={styles.cards}>
         {cards.map((card) => (
-          <Cards card={card}></Cards>
+          <div key={card.id}>
+            <Cards card={card}></Cards>
+          </div>
         ))}
       </ul>
     </div>

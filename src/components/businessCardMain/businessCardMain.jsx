@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import CardMaker from "./cardMaker/cardMaker";
 import CardPreview from "./cardPreview/cardPreview";
 import { useState } from "react";
-function BusinessCardMain({ authservice }) {
+function BusinessCardMain({ authservice, onAdd }) {
   const navigate = useNavigate();
   const onLogout = () => {
     authservice.logout();
@@ -60,7 +60,7 @@ function BusinessCardMain({ authservice }) {
       <section className={styles.container}>
         <BusinessCardHeader onLogout={onLogout} />
         <div className={styles.maincontainer}>
-          <CardMaker cards={cards} />
+          <CardMaker onAdd={onAdd} cards={cards} />
           <CardPreview cards={cards} />
         </div>
         <BusinessCardFooter />
