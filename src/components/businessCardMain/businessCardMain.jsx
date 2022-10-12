@@ -5,7 +5,7 @@ import styles from "./businessCardMain.module.css";
 import { useNavigate } from "react-router-dom";
 import CardMaker from "./cardMaker/cardMaker";
 import CardPreview from "./cardPreview/cardPreview";
-import { useState } from "react";
+import { useState, useCallback } from "react";
 function BusinessCardMain({ authservice, onAdd }) {
   const navigate = useNavigate();
   const onLogout = () => {
@@ -19,7 +19,7 @@ function BusinessCardMain({ authservice, onAdd }) {
     });
   });
 
-  const [cards, setCards] = useState([
+  let [cards, setCards] = useState([
     {
       id: 1,
       name: "ellie",
@@ -54,13 +54,31 @@ function BusinessCardMain({ authservice, onAdd }) {
       fileURL: "doong.png",
     },
   ]);
-
+  console.log(cards);
+  const addForm = useCallback((data) => {
+    cards = [
+      ...cards,
+      {
+        id: Date.now,
+        name: data.name,
+        company: data.company,
+        theme: data.theme,
+        title: data.title,
+        email: data.email,
+        message: data.message,
+        fileName: "murramge",
+        fileURL: null,
+      },
+    ];
+    setCards({ cards });
+  }, []);
+  console.log(cards);
   return (
     <>
       <section className={styles.container}>
         <BusinessCardHeader onLogout={onLogout} />
         <div className={styles.maincontainer}>
-          <CardMaker onAdd={onAdd} cards={cards} />
+          <CardMaker onAdd={addForm} cards={cards} />
           <CardPreview cards={cards} />
         </div>
         <BusinessCardFooter />

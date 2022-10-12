@@ -6,7 +6,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useCallback } from "react";
 
 function App({ authservice }) {
-  const addForm = useCallback((value) => {});
   return (
     <div className={styles.app}>
       <BrowserRouter>
@@ -14,9 +13,7 @@ function App({ authservice }) {
           <Route path="/" element={<Login authservice={authservice} />}></Route>
           <Route
             path="/main"
-            element={
-              <BusinessCardMain onAdd={addForm} authservice={authservice} />
-            }
+            element={<BusinessCardMain authservice={authservice} />}
           ></Route>
         </Routes>
       </BrowserRouter>

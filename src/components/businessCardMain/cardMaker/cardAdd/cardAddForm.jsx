@@ -2,51 +2,57 @@ import React from "react";
 import styles from "./cardAddForm.module.css";
 import ImageFileInput from "../../../image_file_input/image_file_input";
 import Button from "../../../button/button";
-import { useRef, useState, useCallback } from "react";
+import { useRef, useCallback } from "react";
 import { useEffect } from "react";
 
 function CardAddForm(props) {
   const formRef = useRef();
+  const nameRef = useRef();
+  const companyRef = useRef();
+  const themeRef = useRef();
+  const titleRef = useRef();
+  const emailRef = useRef();
+  const messageRef = useRef();
 
-  const [addCard, setAddCards] = useState([
-    {
-      id: Date.now(),
-      name: "",
-      company: "",
-      theme: "",
-      title: "",
-      email: "",
-      message: "",
-      fileName: "",
-      fileURL: null,
-    },
-  ]);
   const handleAdd = useCallback((event) => {
     event.preventDefault();
-    setAddCards({
-      name: event.target.value,
-    });
+    const { onAdd } = props;
+    const name = nameRef.current.value;
+    const company = companyRef.current.value;
+    const theme = themeRef.current.value;
+    const title = titleRef.current.value;
+    const email = emailRef.current.value;
+    const message = messageRef.current.value;
+    const data = {
+      name,
+      company,
+      theme,
+      title,
+      email,
+      message,
+    };
+    console.log(data);
+    onAdd(data);
+    formRef.current.reset();
   }, []);
 
-  console.log(addCard);
   return (
-    <form className={styles.form}>
+    <form className={styles.form} ref={formRef}>
       <input
         className={styles.input}
-        ref={formRef}
+        ref={nameRef}
         type="text"
         name="name"
-        defaultValue={addCard.name}
         placeholder="Name"
-        onChange={handleAdd}
       />
       <input
         className={styles.input}
+        ref={companyRef}
         type="text"
         name="company"
         placeholder="Company"
       />
-      <select className={styles.select} name="theme">
+      <select className={styles.select} name="theme" ref={themeRef}>
         <option value="light">Light</option>
         <option value="dark">Dark</option>
         <option value="colorful">Colorful</option>
@@ -56,17 +62,20 @@ function CardAddForm(props) {
         type="text"
         name="title"
         placeholder="Title"
+        ref={titleRef}
       />
       <input
         className={styles.input}
         type="text"
         name="email"
         placeholder="Email"
+        ref={emailRef}
       />
       <textarea
         className={styles.textarea}
         name="message"
         placeholder="Message"
+        ref={messageRef}
       ></textarea>
       <div className={styles.fileInput}>
         <ImageFileInput />
