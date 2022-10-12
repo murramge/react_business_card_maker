@@ -56,21 +56,8 @@ function BusinessCardMain({ authservice, onAdd }) {
   ]);
   console.log(cards);
   const addForm = useCallback((data) => {
-    cards = [
-      ...cards,
-      {
-        id: Date.now,
-        name: data.name,
-        company: data.company,
-        theme: data.theme,
-        title: data.title,
-        email: data.email,
-        message: data.message,
-        fileName: "murramge",
-        fileURL: null,
-      },
-    ];
-    setCards({ cards });
+    const update = [...cards, data];
+    setCards(update);
   }, []);
   console.log(cards);
   return (

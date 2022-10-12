@@ -17,19 +17,16 @@ function CardAddForm(props) {
   const handleAdd = useCallback((event) => {
     event.preventDefault();
     const { onAdd } = props;
-    const name = nameRef.current.value;
-    const company = companyRef.current.value;
-    const theme = themeRef.current.value;
-    const title = titleRef.current.value;
-    const email = emailRef.current.value;
-    const message = messageRef.current.value;
     const data = {
-      name,
-      company,
-      theme,
-      title,
-      email,
-      message,
+      id: Date.now,
+      name: nameRef.current.value || " ",
+      company: companyRef.current.value || " ",
+      theme: themeRef.current.value,
+      title: titleRef.current.value || " ",
+      email: emailRef.current.value || " ",
+      message: messageRef.current.value || " ",
+      fileName: " ",
+      fileURL: null,
     };
     console.log(data);
     onAdd(data);
