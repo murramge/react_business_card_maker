@@ -19,8 +19,8 @@ function BusinessCardMain({ authservice, onAdd }) {
     });
   });
 
-  let [cards, setCards] = useState([
-    {
+  let [cards, setCards] = useState({
+    1: {
       id: 1,
       name: "ellie",
       company: "samsung",
@@ -31,7 +31,7 @@ function BusinessCardMain({ authservice, onAdd }) {
       fileName: "ellie",
       fileURL: null,
     },
-    {
+    2: {
       id: 2,
       name: "murramge",
       company: "lg",
@@ -42,7 +42,7 @@ function BusinessCardMain({ authservice, onAdd }) {
       fileName: "murramge",
       fileURL: null,
     },
-    {
+    3: {
       id: 3,
       name: "doong",
       company: "samsung",
@@ -53,19 +53,42 @@ function BusinessCardMain({ authservice, onAdd }) {
       fileName: "doong",
       fileURL: "doong.png",
     },
-  ]);
+  });
+
   console.log(cards);
-  const addForm = useCallback((data) => {
-    const update = [...cards, data];
-    setCards(update);
-  }, []);
+
+  const createOrupdateCard = (card) => {
+    setCards((cards) => {
+      {
+        const updated = { ...cards };
+        updated[card.id] = card;
+        return updated;
+      }
+    });
+  };
+
+  const deleteCard = (card) => {
+    setCards((cards) => {
+      {
+        const updated = { ...cards };
+        delete updated[card.id];
+        return updated;
+      }
+    });
+  };
+
   console.log(cards);
   return (
     <>
       <section className={styles.container}>
         <BusinessCardHeader onLogout={onLogout} />
         <div className={styles.maincontainer}>
-          <CardMaker onAdd={addForm} cards={cards} />
+          <CardMaker
+            onAdd={createOrupdateCard}
+            cards={cards}
+            updateCard={createOrupdateCard}
+            deleteCard={deleteCard}
+          />
           <CardPreview cards={cards} />
         </div>
         <BusinessCardFooter />
